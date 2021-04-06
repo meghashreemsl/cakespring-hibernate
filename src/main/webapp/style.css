@@ -1,0 +1,18 @@
+@charset "ISO-8859-1";
+.header
+{
+	color:grey;
+	padding:30px;
+}
+.megha{
+	background-image:url('cake1.jpg');
+	text-align:center;
+    background-attachment:fixed;
+    background-size:cover;
+    padding-top:center;
+}
+.formstyle{
+	font-size:30px;
+	color:white;
+	
+}
