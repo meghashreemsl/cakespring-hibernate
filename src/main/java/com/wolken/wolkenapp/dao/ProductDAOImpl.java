@@ -1,8 +1,8 @@
 package com.wolken.wolkenapp.dao;
 
+import java.util.List;
 
 import org.apache.log4j.Logger;
-
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -10,54 +10,38 @@ import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.stereotype.Component;
-
-import com.wolken.wolkenapp.dto.CakeDTO;
-import com.wolken.wolkenapp.entity.CakeEntity;
-import com.wolken.wolkenapp.exception.MyException;
-
+import com.wolken.wolkenapp.entity.ProductEntity;
 
 @Component
-public class CakeDAOImpl implements CakeDAO{
+public class ProductDAOImpl  implements ProductDAO{
 	
-	Logger logger = Logger.getLogger("CakeDAOImpl");
+Logger logger = Logger.getLogger("ProductDAOImpl");
 	
 	@Autowired
 	LocalSessionFactoryBean bean;
-
-	public String save(CakeEntity cakeEntity) {
-		try {
-		logger.info("inside save");
+	
+	public String add(ProductEntity productEntity) {
 		SessionFactory factory = bean.getObject();
 		Session session = factory.openSession();
 		Transaction transaction = session.beginTransaction();
-		session.save(cakeEntity);
+		session.save(productEntity);
 		transaction.commit();
 		session.close();
-		return "data added";
+		return "product data added";
 	}
-    catch(Exception e){
-    	logger.info("save method excuted");
-    }
-		return "data saved";
 	
-		}
-	public CakeEntity getByuser(String userName)  {
-
-		try {
-		logger.info("inside getByusername");
+	public ProductEntity getBySearch(String p_cakeName){
 		SessionFactory factory = bean.getObject();
 		Session session = factory.openSession();
 		Transaction transaction = session.beginTransaction();
-		Query query = session.createQuery("select ck from CakeEntity ck where ck.UserName = :username" );
-		query.setParameter("username", userName);
-		CakeEntity cakeEntity = (CakeEntity)query.uniqueResult();
+		Query query = session.createQuery("select pk from ProductEntity pk where pk.p_cakeName = :pcname" );
+		query.setParameter("pcname", p_cakeName);
+		ProductEntity productEntity = (ProductEntity)query.uniqueResult();
 		//query.executeUpdate();
 		transaction.commit();
 		session.close();
-	    return cakeEntity;
-	
-}finally {
-	logger.info("exceuted get byuser");
-}
-}
+		return  productEntity;
+		
+	}
+
 }

@@ -25,7 +25,7 @@ public class CakeDTO {
 	
      private Integer cakeId;
 
-	private String UserName;
+	private String userName;
 
 	private String emailId;
 

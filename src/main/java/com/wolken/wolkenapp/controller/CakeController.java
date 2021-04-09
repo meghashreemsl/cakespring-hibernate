@@ -10,10 +10,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.wolken.wolkenapp.dto.CakeDTO;
+import com.wolken.wolkenapp.exception.MyException;
 import com.wolken.wolkenapp.service.CakeService;
 
 @Controller
-@Component
 @RequestMapping("/")
 public class CakeController {
 	
@@ -23,12 +23,10 @@ public class CakeController {
 	CakeService cakeService;
 	
 	@RequestMapping("/cake.do")
-	public String save(@ModelAttribute CakeDTO cakeDTO,HttpServletRequest req) {
+	public String save(@ModelAttribute CakeDTO cakeDTO,HttpServletRequest req) throws MyException {
 		logger.info("inside controller save");
-		
 		String msg= cakeService.validateAndSave(cakeDTO);
 		req.setAttribute("msg", msg);
-		return "final.jsp";
+		return "login.jsp";
 	}
-
 }

@@ -34,13 +34,21 @@ public class CakeServiceImpl implements CakeService {
 									 if(cakeentity==null) {
 										 CakeEntity cakeEntity=new CakeEntity();
 										 logger.info("setting the values");
+										 logger.info("setting cake id");
 									 cakeEntity.setCakeId(cakeDTO.getCakeId());
+									 logger.info("setting username");
 									 cakeEntity.setUserName(cakeDTO.getUserName());
+									 logger.info("setting email id");
 									 cakeEntity.setEmailId(cakeDTO.getEmailId());
+									 logger.info("setting contact no");
 									 cakeEntity.setContactNo(cakeDTO.getContactNo());
+									 logger.info("setting dob");
 									 cakeEntity.setDob(cakeDTO.getDob());
+									 logger.info("setting gender");
 									 cakeEntity.setGender(cakeDTO.getGender());
+									 logger.info("setting password");
 									 cakeEntity.setPassword(cakeDTO.getPassword());
+									 logger.info("setting confirm password");
 									 cakeEntity.setConfirmPassword(cakeDTO.getConfirmPassword());
 									cakeDAO.save(cakeEntity);
 									 }
@@ -74,9 +82,7 @@ public class CakeServiceImpl implements CakeService {
 			
 			logger.info("cake id is invalid");
 			throw new MyException();
-			
 		}
-	
 		return "data saved";
 
 	}

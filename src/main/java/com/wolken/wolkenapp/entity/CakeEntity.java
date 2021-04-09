@@ -17,7 +17,6 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-@Component
 @Table(name="cake_table")
 public class CakeEntity {
 	
@@ -27,7 +26,7 @@ public class CakeEntity {
 	@Column(name="cake_id")
      private Integer cakeId;
 	@Column(name="username")
-	private String UserName;
+	private String userName;
 	@Column(name="email_id")
 	private String emailId;
 	@Column(name="contact_no")
