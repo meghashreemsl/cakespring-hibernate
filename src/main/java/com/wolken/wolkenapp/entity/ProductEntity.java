@@ -26,6 +26,5 @@ public class ProductEntity {
 	private int p_quantity;
 	@Column(name="p_rating")
 	private int p_rating;
-	
-	
+
 }

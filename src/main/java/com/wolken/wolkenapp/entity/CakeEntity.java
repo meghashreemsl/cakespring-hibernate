@@ -8,8 +8,6 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
-import org.springframework.stereotype.Component;
-
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -19,7 +17,7 @@ import lombok.ToString;
 @ToString
 @Table(name="cake_table")
 public class CakeEntity {
-	
+
 	@Id
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	private int id;
@@ -40,6 +38,5 @@ public class CakeEntity {
 	@Transient
 	private String confirmPassword;
 	
-
 }
 

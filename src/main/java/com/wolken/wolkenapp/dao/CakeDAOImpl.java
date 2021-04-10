@@ -10,10 +10,7 @@ import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.stereotype.Component;
-
-import com.wolken.wolkenapp.dto.CakeDTO;
 import com.wolken.wolkenapp.entity.CakeEntity;
-import com.wolken.wolkenapp.exception.MyException;
 
 
 @Component
@@ -48,7 +45,7 @@ public class CakeDAOImpl implements CakeDAO{
 		SessionFactory factory = bean.getObject();
 		Session session = factory.openSession();
 		Transaction transaction = session.beginTransaction();
-		Query query = session.createQuery("select ck from CakeEntity ck where ck.UserName = :username" );
+		Query query = session.createQuery("select ck from CakeEntity ck where ck.userName = :username" );
 		query.setParameter("username", userName);
 		CakeEntity cakeEntity = (CakeEntity)query.uniqueResult();
 		//query.executeUpdate();

@@ -19,7 +19,6 @@
 				<value>com.wolken.wolkenapp.entity.CakeEntity</value>
 				<value>com.wolken.wolkenapp.entity.LoginEntity</value>
 				<value>com.wolken.wolkenapp.entity.ProductEntity</value>
-			
 			</list>
 		</property>
 	</bean>
